@@ -1,0 +1,76 @@
+.action-details {
+    background: var(--bg-color-400);
+    width: min(700px, 95%);
+    /*height: min(500px, 90%);*/
+    height: fit-content;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    box-shadow: var(--form-shdow);
+    border-radius: 7px;
+    padding: 15px;
+    overflow-y: auto;
+
+    &:focus {
+        border: none;
+        outline: none;
+    }
+
+    & .action__title {
+        color: var(--blue-300);
+        font-weight: 500;
+    }
+
+    & .tasks {
+        margin-top: 15px;
+
+        & .task {
+            color: var(--blue-300);
+            margin-bottom: 10px;
+            display: flex;
+            width: 100%;
+            cursor: default;
+
+            &.done {
+                opacity: var(--card-disabled-opacity);
+            }
+
+            > * {
+                padding: 5px;
+                border-radius: 5px;
+            }
+
+            & .task__icon {
+                border: 1px solid var(--blue-300);
+                padding-inline: 8px;
+                cursor: pointer;
+            }
+
+            & .separator {
+                padding: 2px 5px;
+                display: flex;
+                gap: 4px;
+                align-items: center;
+
+                > * {
+                    border: 1px solid var(--blue-300);
+                    display: block;
+                    width: 1px;
+                    height: 100%;
+                    border-radius: 20px;
+                }
+
+                > :last-child {
+                    height: 60%;
+                }
+            }
+
+            & .task__title {
+                border: 1px solid var(--blue-300);
+                width: 100%;
+                cursor: pointer;
+            }
+        }
+    }
+}

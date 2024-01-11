@@ -1,0 +1,53 @@
+.roadmap-section {
+    padding: 7px;
+
+    & .roadmap-section__icon {
+        position: relative;
+        left: -6px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--bg-color-700);
+            border: 3px solid var(--purpal);
+            border-radius: 50%;
+            left: -39px;
+            top: -13px;
+        }
+
+        &.current::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            width: 8px;
+            height: 8px;
+            background: var(--purpal);
+            animation: grow .7s alternate-reverse infinite;
+            left: -0px;
+            top: -0px;
+        }
+
+        &.done {
+            &::before {
+                background: var(--purpal);
+            }
+
+            & i {
+                position: absolute;
+                font-size: 31px;
+                top: -18px;
+                left: -40px;
+                color: var(--bg-color-700);
+            }
+        }
+    }
+
+    & .options {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 10px;
+    }
+}
