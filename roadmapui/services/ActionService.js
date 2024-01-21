@@ -1,4 +1,4 @@
-import {ModuleService} from "@/services/service";
+import {ModuleService} from "@/services/Service";
 
 class ActionService extends ModuleService {
     constructor() {

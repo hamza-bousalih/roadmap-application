@@ -80,6 +80,24 @@ function RemoveIcon({className, onclick}) {
 function AddIcon({className, onclick}) {
     return <i onClick={onclick} className={setIcon("clipboard-plus", className)}></i>
 }
+function LookIcon({ className }) {
+    return <i className={setIcon("bookmark-fill", className)}></i>;
+  }
+function UserIcon({ className }) {
+    return <i className={setIcon("person-circle", className)}></i>;
+  }
+  function SearchIcon({ className }) {
+    return <i className={setIcon("search", className)}></i>;
+  }
+  function HomeIcon({ className }) {
+    return <i className={setIcon("house", className)}></i>;
+  }
+  function GearIcon({ className }) {
+    return <i className={setIcon("gear", className)}></i>;
+  }
+  function ClockIcon({ className }) {
+    return <i className={setIcon("clock-history", className)}></i>;
+  }
 
 export {
     RoadmapIcon,
@@ -100,5 +118,11 @@ export {
     MusicNoteIcon,
     DeleteIcon,
     RemoveIcon,
-    AddIcon
+    AddIcon,
+    LookIcon,
+    UserIcon,
+    SearchIcon,
+    HomeIcon,
+    GearIcon,
+    ClockIcon
 }
