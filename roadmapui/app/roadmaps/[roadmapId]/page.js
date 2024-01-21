@@ -5,11 +5,10 @@ import Service from "@/services"
 import {useEffect, useState} from "react";
 import Loader from "@/components/roadmap/laoder/Loader";
 import RoadmapDetails from "@/components/roadmap/timeline/roadmap-details/RoadmapDetails";
-import {useRoadmapContext} from "@/app/roadmaps/layout";
+import {useRoadmapContext} from "@/app/layout";
 
 export default function RoadmapPage({params: {roadmapId}}) {
-    const [roadmap, setRoadmap] = useState({});
-    const {roadmap: roadmapContext, setRoadmapContext} = useRoadmapContext();
+    const {roadmap, setRoadmap} = useRoadmapContext();
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {

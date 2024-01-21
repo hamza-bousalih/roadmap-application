@@ -6,7 +6,6 @@ import '@/styles/globals.css'
 import {createContext, useContext, useState} from "react";
 
 export const RoadmapContext = createContext();
-
 export const useRoadmapContext = () => useContext(RoadmapContext)
 
 export default function RootLayout({children}) {

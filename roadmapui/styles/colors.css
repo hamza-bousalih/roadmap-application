@@ -3,10 +3,11 @@
     --bg-color-700: hsl(231, 53%, 10%); /*BG COLOR*/
     --bg-color-900: hsl(229, 60%, 7%);
 
-    --bg-overlay: hsla(229, 57%, 5%, 50%);
+    --bg-overlay: hsla(229, 57%, 5%, 70%);
 
-    --paragraph: hsla(0, 0%, 100%, 50%);
+    --paragraph: hsla(0, 0%, 100%, 0.6);
 
+    --white: hsl(0, 0%, 89%);
     --purpal: hsl(273, 90%, 59%);
     --green: hsl(116, 69%, 31%);
     --blue-200: hsl(209, 72%, 55%);
@@ -16,10 +17,11 @@
     --yellow: hsl(47, 100%, 50%);
     --red: hsl(0, 80%, 58%);
 
-    --form-bg: hsl(231, 53%, 10%);
-    --form-shdow: 0 0 10px 5px rgba(0, 0, 0, 0.49);
+    --form-bg: var(--bg-color-400);
+    --form-shdow: 0 0 20px 4px rgba(0, 4, 19, 0.85);
     --form-field-bg: hsl(232, 52%, 8%);
-    --form-field-placeholder: hsla(0, 0%, 100%, 20%);
+    --form-field-border: 1px solid var(--purpal);
+    --form-field-placeholder: hsla(0, 0%, 100%, 0.5);
 
     --purple-bg-opacity: hsla(272, 72%, 47%, 30%);
     --green-bg-opacity: hsla(129, 72%, 47%, 27%);
