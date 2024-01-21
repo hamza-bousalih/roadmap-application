@@ -5,11 +5,14 @@ import Service from "@/services"
 import {useEffect, useState} from "react";
 import Loader from "@/components/roadmap/laoder/Loader";
 import RoadmapDetails from "@/components/roadmap/timeline/roadmap-details/RoadmapDetails";
-import {useRoadmapContext} from "@/app/layout";
+import {useRoadmapContext} from "@/app/roadmaps/layout";
 
 export default function RoadmapPage({params: {roadmapId}}) {
-    const {roadmap, setRoadmap} = useRoadmapContext();
+    const {roadmap, setRoadmap, modeChanger} = useRoadmapContext();
     const [loading, setLoading] = useState(true);
+
+    // change the mode to read
+    modeChanger.read()
 
     useEffect(() => {
         const fetchData = async () => {

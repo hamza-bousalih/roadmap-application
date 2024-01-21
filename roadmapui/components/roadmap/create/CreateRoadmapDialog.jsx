@@ -1,26 +1,18 @@
+"use client"
+
 import Dialog, {DialogBody, DialogFooter, LongTextInput, SubmitButton, TextInput} from "@/components/dialog/Dialog";
-import {useState} from "react";
-import {useRouter} from "next/navigation";
+import {useRoadmapContext} from "@/app/roadmaps/layout";
 
 export default function CreateRoadmapDialog({onClose}) {
-    const route  = useRouter()
-
-    const [newRoadmap, setNewRoadmap] = useState({
-        title: "", description: "", // tags: [],
-    });
+    const  {roadmap, setRoadmap} = useRoadmapContext();
 
     const handleInput = (event) => {
         const {name, value} = event.target
-        setNewRoadmap((prev) => ({...prev, [name]: value}));
+        setRoadmap((prev) => ({...prev, [name]: value}));
     }
 
     const onCloseHandler = () => {
         onClose()
-    }
-
-    const handleSubmit = () => {
-        console.log(`/roadmaps/create/${newRoadmap.title}/${newRoadmap.description}`)
-        route.push(`/roadmaps/create/${newRoadmap.title}/${newRoadmap.description}`)
     }
 
     return <>
@@ -31,20 +23,17 @@ export default function CreateRoadmapDialog({onClose}) {
         >
             <DialogBody>
                 <TextInput
-                    id="title"
+                    id="title" defaultValue={roadmap.title}
                     placeholder="Title for your roadmap"
                     onChange={handleInput}/>
                 <LongTextInput
-                    id="description"
+                    id="description" defaultValue={roadmap.description}
                     placeholder="Description for your roadmap"
                     onChange={handleInput}/>
                 {/*<TextInput id="tags" label="Tags" placeholder="Entre a tag"/>*/}
             </DialogBody>
             <DialogFooter>
-                <SubmitButton
-                    label="Get Satrt"
-                    onClick={handleSubmit}
-                />
+                <SubmitButton label="Get Satrt" onClick={onCloseHandler}/>
             </DialogFooter>
         </Dialog>
     </>

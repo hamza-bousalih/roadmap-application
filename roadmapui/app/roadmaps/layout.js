@@ -10,14 +10,31 @@ export const useRoadmapContext = () => useContext(RoadmapContext)
 
 export default function RootLayout({children}) {
     const [roadmap, setRoadmap] = useState({})
+    const [readMode, setReadMode] = useState(true)
+    const [createMode, setCreateMode] = useState(false)
+    const [updateMode, setUpdateMode] = useState(false)
 
-    return (
-        <html lang="en">
+    const modeChanger = {
+        create: () => {
+            setCreateMode(true)
+            setUpdateMode(false)
+            setReadMode(false)
+        }, update: () => {
+            setCreateMode(false)
+            setUpdateMode(true)
+            setReadMode(false)
+        }, read: () => {
+            setCreateMode(false)
+            setUpdateMode(false)
+            setReadMode(true)
+        }
+    }
+
+    return (<html lang="en">
         <body>
-        <RoadmapContext.Provider value={{roadmap, setRoadmap}}>
+        <RoadmapContext.Provider value={{roadmap, setRoadmap, createMode, updateMode, modeChanger}}>
             {children}
         </RoadmapContext.Provider>
         </body>
-        </html>
-    )
+        </html>)
 }
