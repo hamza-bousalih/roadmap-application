@@ -1,6 +1,6 @@
 "use client"
 
-import RoadmapAction from "@/components/roadmap/timeline/roadmap-action/RoadmapAction";
+import RoadmapAction, {AddRoadmapAction} from "@/components/roadmap/timeline/roadmap-action/RoadmapAction";
 
 import "./roadmap-option.css"
 import {PlusIcon} from "@/components/utils/icons";

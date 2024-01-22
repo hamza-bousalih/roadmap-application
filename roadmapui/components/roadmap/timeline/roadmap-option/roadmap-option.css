@@ -3,7 +3,6 @@
     background: var(--bg-color-400);
     padding: 5px 10px;
     border-radius: 5px;
-    isolation: isolate;
 
     &::before {
         position: absolute;

@@ -9,7 +9,6 @@
     color: #fff;
 
     opacity: var(--card-disabled-opacity);
-    /*cursor: pointer;*/
 
     &:hover {
         transition: .3s;
@@ -37,9 +36,13 @@
     & .icons {
         display: flex;
         gap: 10px;
+        cursor: pointer;
+    }
 
-        & .pointer {
-            cursor: pointer;
-        }
+    &.add {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
     }
 }

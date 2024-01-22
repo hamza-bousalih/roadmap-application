@@ -6,66 +6,50 @@ import ActionDetails from "@/components/roadmap/timeline/action-details/ActionDe
 
 import "./roadmap-action.css"
 import {useRoadmapContext} from "@/app/roadmaps/layout";
+import CreateActionDialog from "@/components/roadmap/create/CreateActionDialog";
 
 export default function RoadmapAction({data, option}) {
-    const {roadmap, setRoadmap, createMode, updateMode, readMode} = useRoadmapContext()
-    const [showTasks, setShowTasks] = useState(false)
-
-    const addSectionHandler = (newAction) => {
-        if (data === undefined) {
-            option.start = newAction
-            setRoadmap(prev => ({...prev}))
-        } else {
-            data.next = newAction
-            setRoadmap(prev => ({...prev}))
-        }
-    }
+    const [showTasks, setShowTasks] = useState(false);
+    const {createMode, updateMode} = useRoadmapContext()
 
     return <>
-        {((createMode || updateMode) && !data) && <>
-            <div className="action add">
-                <PlusIcon className="icon"/>
-            </div>
-        </>}
+        {(data === undefined && (updateMode || createMode)) && <AddRoadmapAction option={option}/>}
         {data && <>
             <div className="action" onClick={() => setShowTasks(true)}>
-                <span className="action__title">{data?.title}</span>
+                <span className="action__title">{data.title}</span>
                 <div className="icons">
                     {/*{clasName === "done" && <CheckCircleIcon/>}*/}
-                    <FullScreenIcon className="pointer"/>
+                    <FullScreenIcon/>
                 </div>
             </div>
-            {((createMode || updateMode) && !data.next) && <>
-                <div className="action add">
-                    <PlusIcon className="icon"/>
-                </div>
-            </>}
-            {data?.next && <RoadmapAction data={data.next}/>}
+            {data.next && <RoadmapAction data={data.next}/>}
             {showTasks &&
                 <ActionDetails
                     handleClose={() => setShowTasks(false)}
-                    actionId={data?.id}
+                    actionId={data.id}
                     open={showTasks}
-                />
-            }
+
+                />}
+            {(data.next === undefined && (updateMode || createMode)) && <AddRoadmapAction action={data} option={option}/>}
         </>}
     </>
 }
 
-export function AddRoadmapAction({section}) {
+export function AddRoadmapAction({action = undefined, option}) {
     const [showDialog, setShowDialog] = useState(true);
     const {setRoadmap} = useRoadmapContext();
 
-    const addAction = (option) => {
-        section.options.push(option)
+    const addAction = (newAction) => {
+        if (action !== undefined) action.next = newAction
+        else option.start = newAction;
         setRoadmap(prev => ({...prev}))
     }
 
     return <>
-        <div className="option-card add-option" onClick={() => setShowDialog(true)}>
-            <PlusIcon pointer={true}/>
+        <div className="action add" onClick={() => setShowDialog(true)}>
+            <PlusIcon className="icon"/>
         </div>
-        {/*{showDialog && <CreateOptionDialog addOption={addAction} onClose={() => setShowDialog(false)}/>}*/}
+        {showDialog && <CreateActionDialog addAction={addAction} option={addAction} onClose={() => setShowDialog(false)}/>}
     </>
 }
 

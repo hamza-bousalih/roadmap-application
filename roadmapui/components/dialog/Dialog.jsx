@@ -67,7 +67,7 @@ export default function Dialog({onClose, title, description, children}) {
             <div className="content">
                 <div className="header">
                     <h2 className="title">{title}</h2>
-                    <p className="description">{description}</p>
+                    {description && <p className="description">{description}</p>}
                 </div>
                 {children}
             </div>
