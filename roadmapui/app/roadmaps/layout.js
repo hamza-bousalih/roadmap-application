@@ -30,9 +30,16 @@ export default function RootLayout({children}) {
         }
     }
 
+    const provided = {
+        roadmap, setRoadmap,
+        createMode, updateMode,
+        readMode, setReadMode,
+        modeChanger
+    };
+
     return (<html lang="en">
         <body>
-        <RoadmapContext.Provider value={{roadmap, setRoadmap, createMode, updateMode, modeChanger}}>
+        <RoadmapContext.Provider value={provided}>
             {children}
         </RoadmapContext.Provider>
         </body>

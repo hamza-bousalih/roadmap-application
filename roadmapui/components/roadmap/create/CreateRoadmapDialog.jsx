@@ -12,12 +12,13 @@ export default function CreateRoadmapDialog({onClose}) {
     }
 
     const onCloseHandler = () => {
+        setRoadmap({title: "Raodmap title", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ex odio, tempor sit amet augueid, malesuada ultricies leo. Vestibulum ultrices elit sit amet efficitur semper. In iaculis suscipit elit in vulputate. Ut a dictumorci. Nunc mollis sapien laoreet felis aliquam blandit. Nunc at tellus vel sem consequat malesuada ut molestie odio. Suspendisse potenti ."})
         onClose()
     }
 
     return <>
         <Dialog
-            onClose={onCloseHandler}
+            // onClose={null}
             title="Create New Roadmap"
             description="Enter The title and description for your raodmap."
         >

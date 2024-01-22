@@ -8,13 +8,13 @@
         &::before {
             content: "";
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 27px;
+            height: 27px;
             background: var(--bg-color-700);
             border: 3px solid var(--purpal);
             border-radius: 50%;
             left: -39px;
-            top: -13px;
+            top: -12px;
         }
 
         &.current::after {
@@ -37,10 +37,22 @@
             & i {
                 position: absolute;
                 font-size: 31px;
-                top: -18px;
-                left: -40px;
+                /*top: -18px;*/
+                /*left: -40px;*/
                 color: var(--bg-color-700);
             }
+        }
+
+        & .icon {
+            position: absolute;
+            left: -38px;
+            top: -18px;
+            color: var(--purpal);
+            font-size: 25px;
+        }
+
+        &.add {
+            cursor: pointer;
         }
     }
 

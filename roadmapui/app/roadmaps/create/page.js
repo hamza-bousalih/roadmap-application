@@ -2,18 +2,20 @@
 
 import RoadmapDetails from "@/components/roadmap/timeline/roadmap-details/RoadmapDetails";
 import {useRoadmapContext} from "@/app/roadmaps/layout";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import CreateRoadmapDialog from "@/components/roadmap/create/CreateRoadmapDialog";
 
-export default function CreateRoadmapPage({}) {
-    const {roadmap, setRoadmap, modeChanger} = useRoadmapContext();
+export default function CreateRoadmapPage() {
+    const {roadmap, setRoadmap, modeChanger, createMode} = useRoadmapContext();
     const [showCreateRoadmapDialog, setShowCreateRoadmapDialog] = useState(true);
 
     // change the mode to create
-    modeChanger.create()
+    useEffect(() => {
+        modeChanger.create()
+    }, [createMode]);
 
     return (<>
-        <RoadmapDetails roadmap={roadmap}/>
+        <RoadmapDetails/>
         {showCreateRoadmapDialog && <CreateRoadmapDialog onClose={() => setShowCreateRoadmapDialog(false)}/>}
     </>)
 }

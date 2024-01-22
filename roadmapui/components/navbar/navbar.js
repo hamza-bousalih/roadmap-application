@@ -10,7 +10,7 @@ const Navbar = () => {
   const navStyle = {
     fontFamily: "lato",
     fontSize: "17px",
-    marginTop: "10px",
+    // marginTop: "10px",
     display: "flex",
     alignItems: "center",
     borderBottom: "1px outset white",

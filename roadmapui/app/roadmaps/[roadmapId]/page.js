@@ -1,6 +1,5 @@
 "use client"
 
-import "@/styles/roadmap/roadmap-details.css"
 import Service from "@/services"
 import {useEffect, useState} from "react";
 import Loader from "@/components/roadmap/laoder/Loader";

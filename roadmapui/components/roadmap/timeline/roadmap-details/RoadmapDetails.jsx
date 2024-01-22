@@ -2,8 +2,11 @@ import {RoadmapIcon} from "@/components/utils/icons";
 import RoadmapSection from "@/components/roadmap/timeline/roadmap-section/RoadmapSection";
 
 import "./roadmap-details.css"
+import {useRoadmapContext} from "@/app/roadmaps/layout";
 
-export default function RoadmapDetails({roadmap}) {
+export default function RoadmapDetails() {
+    const {roadmap, createMode, updateMode} = useRoadmapContext()
+
     return (<>
         <div className="roadmap">
             <div className="aside"></div>
@@ -14,7 +17,7 @@ export default function RoadmapDetails({roadmap}) {
                     <p className="roadmap__desc">{roadmap.description}</p>
                 </section>
 
-                {roadmap.start && <RoadmapSection data={roadmap.start}/>}
+                {(roadmap?.start || (updateMode || createMode)) && <RoadmapSection data={roadmap.start}/>}
             </main>
         </div>
     </>)

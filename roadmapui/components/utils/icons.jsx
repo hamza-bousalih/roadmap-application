@@ -4,125 +4,59 @@ function setIcon(icon, className) {
     return `bi bi-${icon} ${className}`
 }
 
-function RoadmapIcon({className, onclick}) {
-    return <i onClick={onclick} className={setIcon("map-fill", className)}></i>
+function Icon({className = "icon", onclick, pointer, name}) {
+    return <i style={{cursor: pointer ? "pointer" : "inherit"}} onClick={onclick}
+              className={setIcon(name, className)}></i>
 }
 
-function CheckIcon({className, onclick}) {
-    return <i onClick={onclick} className={setIcon("check", className)}></i>
-}
+export const RoadmapIcon = (props) => <Icon {...props} name="map-fill"/>
 
-function CheckCircleIcon({className, onclick}) {
-    return <i onClick={onclick} className={setIcon("check2-circle", className)}></i>
-}
+export const CheckIcon = (props) => <Icon {...props} name="check"/>
 
-function FullScreenIcon({className, onclick}) {
-    return <i onClick={onclick} className={setIcon("fullscreen", className)}></i>
-}
+export const PlusIcon = (props) => <Icon {...props} name="plus"/>
 
-function FullScreenExitIcon({className, onclick}) {
-    return <i onClick={onclick} className={setIcon("fullscreen-exit", className)}></i>
-}
+export const CheckCircleIcon = (props) => <Icon {...props} name="check2-circle"/>
 
-function GoeAltIcon({className, onclick}) {
-    return <i onClick={onclick} className={setIcon("geo-alt", className)}></i>
-}
+export const FullScreenIcon = (props) => <Icon {...props} name="fullscreen"/>
 
-function GoeAltFillIcon({className, onclick}) {
-    return <i onClick={onclick} className={setIcon("geo-alt-fill", className)}></i>
-}
+export const FullScreenExitIcon = (props) => <Icon {...props} name="fullscreen-exit"/>
 
-function CodeSlashIcon({className, onclick}) {
-    return <i onClick={onclick} className={setIcon("code-slash", className)}></i>
-}
+export const GoeAltIcon = (props) => <Icon {...props} name="geo-alt"/>
 
-function TerminalIcon({className, onclick}) {
-    return <i onClick={onclick} className={setIcon("terminal", className)}></i>
-}
+export const GoeAltFillIcon = (props) => <Icon {...props} name="geo-alt-fill"/>
 
-function BookIcon({className, onclick}) {
-    return <i onClick={onclick} className={setIcon("book", className)}></i>
-}
+export const CodeSlashIcon = (props) => <Icon {...props} name="code-slash"/>
 
+export const TerminalIcon = (props) => <Icon {...props} name="terminal"/>
 
-function PencilSquareIcon({className, onclick}) {
-    return <i onClick={onclick} className={setIcon("pencil-square", className)}></i>
-}
+export const BookIcon = (props) => <Icon {...props} name="book"/>
 
-function CheckSquareIcon({className, onclick}) {
-    return <i onClick={onclick} className={setIcon("check2-square", className)}></i>
-}
+export const PencilSquareIcon = (props) => <Icon {...props} name="pencil-square"/>
 
-function PenIcon({className, onclick}) {
-    return <i onClick={onclick} className={setIcon("pen", className)}></i>
-}
+export const CheckSquareIcon = (props) => <Icon {...props} name="check2-square"/>
 
-function TvIcon({className, onclick}) {
-    return <i onClick={onclick} className={setIcon("tv", className)}></i>
-}
+export const PenIcon = (props) => <Icon {...props} name="pen"/>
 
-function TextLeftIcon({className, onclick}) {
-    return <i onClick={onclick} className={setIcon("text-left", className)}></i>
-}
+export const TvIcon = (props) => <Icon {...props} name="tv"/>
 
-function MusicNoteIcon({className, onclick}) {
-    return <i onClick={onclick} className={setIcon("music-note", className)}></i>
-}
+export const TextLeftIcon = (props) => <Icon {...props} name="text-left"/>
 
-function DeleteIcon({className, onclick}) {
-    return <i onClick={onclick} className={setIcon("clipboard2-x", className)}></i>
-}
+export const MusicNoteIcon = (props) => <Icon {...props} name="music-note"/>
 
-function RemoveIcon({className, onclick}) {
-    return <i onClick={onclick} className={setIcon("clipboard-minus", className)}></i>
-}
+export const DeleteIcon = (props) => <Icon {...props} name="clipboard2-x"/>
 
-function AddIcon({className, onclick}) {
-    return <i onClick={onclick} className={setIcon("clipboard-plus", className)}></i>
-}
-function LookIcon({ className }) {
-    return <i className={setIcon("bookmark-fill", className)}></i>;
-  }
-function UserIcon({ className }) {
-    return <i className={setIcon("person-circle", className)}></i>;
-  }
-  function SearchIcon({ className }) {
-    return <i className={setIcon("search", className)}></i>;
-  }
-  function HomeIcon({ className }) {
-    return <i className={setIcon("house", className)}></i>;
-  }
-  function GearIcon({ className }) {
-    return <i className={setIcon("gear", className)}></i>;
-  }
-  function ClockIcon({ className }) {
-    return <i className={setIcon("clock-history", className)}></i>;
-  }
+export const RemoveIcon = (props) => <Icon {...props} name="clipboard-minus"/>
 
-export {
-    RoadmapIcon,
-    CheckIcon,
-    CheckCircleIcon,
-    FullScreenIcon,
-    FullScreenExitIcon,
-    GoeAltIcon,
-    GoeAltFillIcon,
-    CodeSlashIcon,
-    TerminalIcon,
-    BookIcon,
-    PencilSquareIcon,
-    CheckSquareIcon,
-    PenIcon,
-    TvIcon,
-    TextLeftIcon,
-    MusicNoteIcon,
-    DeleteIcon,
-    RemoveIcon,
-    AddIcon,
-    LookIcon,
-    UserIcon,
-    SearchIcon,
-    HomeIcon,
-    GearIcon,
-    ClockIcon
-}
+export const AddIcon = (props) => <Icon {...props} name="clipboard-plus"/>
+
+export const LookIcon = (props) => <Icon {...props} name="bookmark-fill"/>
+
+export const UserIcon = (props) => <Icon {...props} name="person-circle"/>
+
+export const SearchIcon = (props) => <Icon {...props} name="search"/>
+
+export const HomeIcon = (props) => <Icon {...props} name="house"/>
+
+export const GearIcon = (props) => <Icon {...props} name="gear"/>
+
+export const ClockIcon = (props) => <Icon {...props} name="clock-history"/>
