@@ -1,0 +1,172 @@
+.card{
+         margin-top:20px ;
+         padding: 20px;
+         border-radius: 10px;
+       }
+.ma{
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+.ma:hover{
+  color:#7E22CE
+}
+.user{
+  color: #7E22CE;
+  
+  
+}
+.fo{
+  background-color: #070B1C;
+  border-radius: 10px;
+  padding: 10px;
+  color:rgb(255, 255, 255);
+  border: none;
+  width: 100%;
+}
+
+.tags{
+  background-color: #0C1027;
+  margin-right: 10px;
+  padding: 7px 17px;
+ text-align: center;
+  border-radius: 10px;
+  border: none;
+  color: rgb(255, 255, 255);
+  
+}
+.enligne{
+  display: flex;
+  align-items: center; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*css de navside*/
+.sidenavbar {
+  height:96% ;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #262E55;
+  padding-top: 10px;
+  margin: 15px;
+  border-radius: 10px;
+  
+}
+
+.sidenavbar-header h2{
+  padding: 6px;
+  text-align: center;
+  color: #AD00FF;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.sidenavbar-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidenavbar-list li {
+  padding: 8px;
+  margin-top:10px ;
+  background-color: #0d13308a;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin: 20px;
+  display: flex;
+  align-items: center; 
+}
+
+.sidenavbar-list a {
+  text-decoration: none;
+  color: #3A82C5;
+  font-size: 13px;
+  display: block;
+  transition: 0.3s;
+  padding-left: 5px;
+  
+}
+
+.sidenavbar-list li:hover {
+  background-color: #0D1330;
+}
+
+.content {
+  margin-left: 250px;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenavbar {padding-top: 15px;}
+  .sidenavbar a {font-size: 18px;}
+}
+hr{
+  width: 100%;
+  border: 1px solid #3A82C5;
+}
+.horizontale{
+  display: flex;
+  padding: 10px;
+}
+/*css de navbar1*/
+.nav1{
+  background-color: #262E55;
+  margin: 20px;
+  padding:20px ;
+  margin-left: 290px;
+ border-radius: 10px;
+ display: flex;
+  align-items: center; 
+    
+}
+/*css de content*/
+.contenu{
+  height: 70%;
+  margin-left: 390px;
+  padding:20px ;
+
+}
+.men{
+  height:96% ;
+  position: fixed;
+  z-index: 1;
+  background-color: #262E55;
+  padding-top: 10px;
+  margin: 15px;
+  border-radius: 10px;
+}
+.nav2{
+  height: 80vh;
+  background-color: #262E55;
+  margin: 20px;
+  padding:20px ;
+  margin-left: 290px;
+ border-radius: 10px;
+
+}
+
+.username{
+  color: white;
+  font-weight: bolder;
+  text-decoration: none;
+ margin-right:20px ;
+position: relative;
+top: -5px;
+font-size: 10px;
+  
+}

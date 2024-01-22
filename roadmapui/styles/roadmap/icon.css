@@ -1,0 +1,38 @@
+.ico{
+    color:#0C1027;
+    float: right;
+    font-size: 20px;
+    margin-top: -10px;
+    
+    
+}
+.ico:hover{
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+.IcoUser{
+    color:#9F39F5;
+    cursor: pointer;
+    font-size: 30px;
+}
+.IcoSearch{
+    color:#9F39F5 ;
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.usei{
+    color: #9F39F5;
+    font-size: 40px;
+}
+.mal{
+    color:#3A82C5;
+    font-size: 20px;
+  }
+.icondash{
+    font-size: 10px;
+    color:#2B588D;
+    
+  }
