@@ -1,8 +1,17 @@
 "use client"
 
-import Dialog, {DialogBody, DialogFooter, LongTextInput, SubmitButton, TextInput} from "@/components/dialog/Dialog";
+import Dialog, {
+    DialogBody,
+    DialogFooter,
+    DialogForm,
+    DialogSection,
+    LongTextInput,
+    SubmitButton,
+    TextInput
+} from "@/components/dialog/Dialog";
 import {useState} from "react";
 import {useRoadmapContext} from "@/app/roadmaps/layout";
+import {AddIcon} from "@/components/utils/icons";
 
 export default function CreateActionDialog({onClose, addAction}) {
     const [newAction, setNewAction] = useState({});
@@ -24,21 +33,51 @@ export default function CreateActionDialog({onClose, addAction}) {
     return <>
         <Dialog
             onClose={onCloseHandler}
-            title="Create New Action"
+            divided={true}
         >
             <DialogBody>
-                <TextInput
-                    id="title"
-                    placeholder="Title for your roadmap"
-                    onChange={handleInput}/>
-                <LongTextInput
-                    id="description"
-                    placeholder="Description for your roadmap"
-                    onChange={handleInput}/>
+
+                <DialogSection title="Create New Action">
+                    <DialogForm>
+                        <TextInput
+                            id="title"
+                            placeholder="Title for your roadmap"
+                            onChange={handleInput}/>
+                        <LongTextInput
+                            id="description"
+                            placeholder="Description for your roadmap"
+                            onChange={handleInput}/>
+                    </DialogForm>
+                    <DialogFooter>
+                        <SubmitButton label="Save Action" onClick={submitHandler}/>
+                    </DialogFooter>
+                </DialogSection>
+
+                <DialogSection title="Add a Task">
+                    <DialogForm>
+                        <TextInput
+                            id="title"
+                            placeholder="Title for your roadmap"
+                            onChange={handleInput}/>
+                        <TextInput
+                            id="type"
+                            placeholder="Description for your roadmap"
+                            onChange={handleInput}/>
+                        <TextInput
+                            id="link" label="Page Link"
+                            placeholder="Description for your roadmap"
+                            onChange={handleInput}/>
+                        <LongTextInput
+                            id="description"
+                            placeholder="Description for your roadmap"
+                            onChange={handleInput}/>
+                    </DialogForm>
+                    <DialogFooter>
+                        <SubmitButton icon={<AddIcon/>} label="Add" onClick={submitHandler} className="small right"/>
+                    </DialogFooter>
+                </DialogSection>
+
             </DialogBody>
-            <DialogFooter>
-                <SubmitButton label="Push to section" onClick={submitHandler}/>
-            </DialogFooter>
         </Dialog>
     </>
 }

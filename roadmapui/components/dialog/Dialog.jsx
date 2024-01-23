@@ -1,24 +1,25 @@
 import "./dialog.css"
-import {button} from "@nextui-org/react";
+import React, {Fragment, Children} from "react";
 
-const DialogBody = ({children}) => {
+export const DialogBody = ({children, type = "form"}) => {
     return <div className="body">
         {children}
     </div>
 }
 
-const DialogFooter = ({children}) => {
+export const DialogFooter = ({children}) => {
     return <div className="footer">
         {children}
     </div>
 }
 
-const TextInput = (
-    {
-        id, onChange, defaultValue, placeholder,
-        name = id, label = id
-        // options: {maxLength, minLength, required}
-    }) => {
+export const DialogForm = ({children}) => {
+    return <div className="form">
+        {children}
+    </div>
+}
+
+export const TextInput = ({id, onChange, defaultValue, placeholder, name = id, label = id}) => {
     return <>
         <div className="input-group">
             <label htmlFor={id}>{label}</label>
@@ -33,12 +34,7 @@ const TextInput = (
     </>
 }
 
-const LongTextInput = (
-    {
-        id, onChange, defaultValue, placeholder,
-        name = id, label = id
-        // options: {maxLength, minLength, required}
-    }) => {
+export const LongTextInput = ({id, onChange, defaultValue, placeholder, name = id, label = id}) => {
     return <>
         <div className="input-group">
             <label htmlFor={id}>{label}</label>
@@ -53,27 +49,39 @@ const LongTextInput = (
     </>
 }
 
-const SubmitButton = ({onClick, label}) => {
-    return <button
-        className="submit-button"
-        onClick={onClick}
-    >{label}</button>
+export const SubmitButton = ({onClick, label, className, style, icon}) => {
+    return <>
+        <button
+            style={style}
+            className={"submit-button " + (className ? className : "")}
+            onClick={onClick}>
+            {icon}
+            {label}
+        </button>
+    </>
 }
 
-export default function Dialog({onClose, title, description, children}) {
+export const DialogSection = ({title, description, children}) => {
+    return <div className="section">
+        <div className="header">
+            <h2 className="title">{title}</h2>
+            {description && <p className="description">{description}</p>}
+        </div>
+        {children}
+    </div>
+}
+
+export default function Dialog({onClose, title, description, divided = false, children}) {
     return <>
         <div className="dialog">
             <div className="overlay" onClick={onClose}></div>
-            <div className="content">
-                <div className="header">
-                    <h2 className="title">{title}</h2>
-                    {description && <p className="description">{description}</p>}
-                </div>
-                {children}
+            <div className={"content " + (divided ? "divided" : "")}>
+                {!divided ? <>
+                    <DialogSection title={title} description={description} children={children}/>
+                </> : <>
+                    {children}
+                </>}
             </div>
         </div>
     </>
 }
-
-export {DialogBody, DialogFooter}
-export {TextInput, LongTextInput, SubmitButton}

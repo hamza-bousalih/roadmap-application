@@ -1,6 +1,13 @@
 "use client"
 
-import Dialog, {DialogBody, DialogFooter, LongTextInput, SubmitButton, TextInput} from "@/components/dialog/Dialog";
+import Dialog, {
+    DialogBody,
+    DialogFooter,
+    DialogForm,
+    LongTextInput,
+    SubmitButton,
+    TextInput
+} from "@/components/dialog/Dialog";
 import {useRoadmapContext} from "@/app/roadmaps/layout";
 
 export default function CreateRoadmapDialog({onClose}) {
@@ -23,15 +30,17 @@ export default function CreateRoadmapDialog({onClose}) {
             description="Enter The title and description for your raodmap."
         >
             <DialogBody>
-                <TextInput
-                    id="title" defaultValue={roadmap.title}
-                    placeholder="Title for your roadmap"
-                    onChange={handleInput}/>
-                <LongTextInput
-                    id="description" defaultValue={roadmap.description}
-                    placeholder="Description for your roadmap"
-                    onChange={handleInput}/>
-                {/*<TextInput id="tags" label="Tags" placeholder="Entre a tag"/>*/}
+                <DialogForm>
+                    <TextInput
+                        id="title" defaultValue={roadmap.title}
+                        placeholder="Title for your roadmap"
+                        onChange={handleInput}/>
+                    <LongTextInput
+                        id="description" defaultValue={roadmap.description}
+                        placeholder="Description for your roadmap"
+                        onChange={handleInput}/>
+                    {/*<TextInput id="tags" label="Tags" placeholder="Entre a tag"/>*/}
+                </DialogForm>
             </DialogBody>
             <DialogFooter>
                 <SubmitButton label="Get Satrt" onClick={onCloseHandler}/>

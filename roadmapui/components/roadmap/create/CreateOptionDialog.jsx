@@ -1,6 +1,13 @@
 "use client"
 
-import Dialog, {DialogBody, DialogFooter, LongTextInput, SubmitButton, TextInput} from "@/components/dialog/Dialog";
+import Dialog, {
+    DialogBody,
+    DialogFooter,
+    DialogForm,
+    LongTextInput,
+    SubmitButton,
+    TextInput
+} from "@/components/dialog/Dialog";
 import {useState} from "react";
 import {useRoadmapContext} from "@/app/roadmaps/layout";
 
@@ -28,14 +35,16 @@ export default function CreateOptionDialog({onClose, addOption}) {
             description="Enter The title and description for the option."
         >
             <DialogBody>
-                <TextInput
-                    id="title"
-                    placeholder="Title for your roadmap"
-                    onChange={handleInput}/>
-                <LongTextInput
-                    id="description"
-                    placeholder="Description for your roadmap"
-                    onChange={handleInput}/>
+                <DialogForm>
+                    <TextInput
+                        id="title"
+                        placeholder="Title for your roadmap"
+                        onChange={handleInput}/>
+                    <LongTextInput
+                        id="description"
+                        placeholder="Description for your roadmap"
+                        onChange={handleInput}/>
+                </DialogForm>
             </DialogBody>
             <DialogFooter>
                 <SubmitButton label="Push to section" onClick={submitHandler}/>
