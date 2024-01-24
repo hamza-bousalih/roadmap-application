@@ -4,8 +4,8 @@ function setIcon(icon, className) {
     return `bi bi-${icon} ${className}`
 }
 
-function Icon({className = "icon", onclick, pointer, name}) {
-    return <i style={{cursor: pointer ? "pointer" : "inherit"}} onClick={onclick}
+function Icon({className = "icon", onclick, clickable, name}) {
+    return <i style={{cursor: clickable ? "pointer" : "inherit"}} onClick={onclick}
               className={setIcon(name, className)}></i>
 }
 

@@ -88,21 +88,32 @@
         & .footer {
             margin-top: 20px;
             display: flex;
+            align-items: center;
+            justify-content: end;
+            flex-direction: row;
+            flex-wrap: wrap;
 
             .submit-button {
+                --border-color: var(--green-border);
+                --backgorund: var(--green-bg-opacity);
+
                 width: 100%;
                 padding: 10px;
                 border-radius: var(--border);
-                border: 1px solid var(--green-border);
-                background: var(--green-bg-opacity);
-                color: var(--green-border);
+                border: 1px solid var(--border-color);
+                background: var(--backgorund);
+                color: var(--border-color);
                 cursor: pointer;
+
+                &.danger {
+                    --border-color: var(--red-border);
+                    --backgorund: var(--red-bg-opacity);
+                }
 
                 &.small {
                     max-width: 100px;
-
-                    &.right {
-                        margin-left: auto;
+                    &:not(:last-child) {
+                        margin-right: 10px;;
                     }
                 }
 

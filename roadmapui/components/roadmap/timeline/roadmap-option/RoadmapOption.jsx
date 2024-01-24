@@ -1,6 +1,6 @@
 "use client"
 
-import RoadmapAction, {AddRoadmapAction} from "@/components/roadmap/timeline/roadmap-action/RoadmapAction";
+import RoadmapAction from "@/components/roadmap/timeline/roadmap-action/RoadmapAction";
 
 import "./roadmap-option.css"
 import {PlusIcon} from "@/components/utils/icons";
@@ -34,9 +34,7 @@ export function AddRoadmapOption({section}) {
     }
 
     return <>
-        <div className="option-card add-option" onClick={() => setShowDialog(true)}>
-            <PlusIcon pointer={true}/>
-        </div>
+        <div className="option-card add-option" onClick={() => setShowDialog(true)}><PlusIcon/></div>
         {showDialog && <CreateOptionDialog addOption={addOption} onClose={() => setShowDialog(false)}/>}
     </>
 }

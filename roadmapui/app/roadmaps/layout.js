@@ -9,7 +9,7 @@ export const RoadmapContext = createContext();
 export const useRoadmapContext = () => useContext(RoadmapContext)
 
 export default function RootLayout({children}) {
-    const [roadmap, setRoadmap] = useState({})
+    const [roadmap, setRoadmap] = useState({title: "", description: ""})
     const [readMode, setReadMode] = useState(true)
     const [createMode, setCreateMode] = useState(false)
     const [updateMode, setUpdateMode] = useState(false)

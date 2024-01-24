@@ -5,7 +5,7 @@ import Dialog, {
     DialogFooter,
     DialogForm,
     LongTextInput,
-    SubmitButton,
+    DialogButton,
     TextInput
 } from "@/components/dialog/Dialog";
 import {useState} from "react";
@@ -47,7 +47,7 @@ export default function CreateOptionDialog({onClose, addOption}) {
                 </DialogForm>
             </DialogBody>
             <DialogFooter>
-                <SubmitButton label="Push to section" onClick={submitHandler}/>
+                <DialogButton label="Push to section" onClick={submitHandler}/>
             </DialogFooter>
         </Dialog>
     </>

@@ -5,7 +5,7 @@ import Dialog, {
     DialogFooter,
     DialogForm,
     LongTextInput,
-    SubmitButton,
+    DialogButton,
     TextInput
 } from "@/components/dialog/Dialog";
 import {useRoadmapContext} from "@/app/roadmaps/layout";
@@ -43,7 +43,7 @@ export default function CreateRoadmapDialog({onClose}) {
                 </DialogForm>
             </DialogBody>
             <DialogFooter>
-                <SubmitButton label="Get Satrt" onClick={onCloseHandler}/>
+                <DialogButton label="Get Satrt" onClick={onCloseHandler}/>
             </DialogFooter>
         </Dialog>
     </>

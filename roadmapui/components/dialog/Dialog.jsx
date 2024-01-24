@@ -26,7 +26,7 @@ export const TextInput = ({id, onChange, defaultValue, placeholder, name = id, l
             <input className="input"
                    type="text" id={id}
                    onChange={onChange} name={name}
-                   defaultValue={defaultValue}
+                   value={defaultValue}
                    placeholder={placeholder}
                 // maxLength={maxLength} minLength={minLength} required={required}
             />
@@ -41,7 +41,7 @@ export const LongTextInput = ({id, onChange, defaultValue, placeholder, name = i
             <textarea
                 className="input long-text" id={id}
                 onChange={onChange} name={name}
-                defaultValue={defaultValue}
+                value={defaultValue}
                 placeholder={placeholder}
                 // maxLength={maxLength} minLength={minLength} required={required}
             ></textarea>
@@ -49,7 +49,16 @@ export const LongTextInput = ({id, onChange, defaultValue, placeholder, name = i
     </>
 }
 
-export const SubmitButton = ({onClick, label, className, style, icon}) => {
+export const Labeled = ({label, children}) => {
+    return <>
+        <div className="input-group">
+            <label>{label}</label>
+            {children}
+        </div>
+    </>
+}
+
+export const DialogButton = ({onClick, label, className, style, icon}) => {
     return <>
         <button
             style={style}
