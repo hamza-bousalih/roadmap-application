@@ -1,10 +1,19 @@
 "use client"
 
 import Dialog , {
-    DialogBody , DialogButton , DialogFooter , DialogForm , DialogSection , Labeled , LongTextInput , TextInput
+    DialogBody ,
+    DialogButton ,
+    DialogFooter ,
+    DialogForm ,
+    DialogSection ,
+    Labeled ,
+    LongTextInput ,
+    SelectInput ,
+    TextInput
 } from "@/components/dialog/Dialog";
 import CardLabeledWithIcons from "@/components/utils/card-labeled-with-icons/CardLabeledWithIcons";
 import {AddIcon , DeleteIcon , FullScreenIcon , RemoveIcon} from "@/components/utils/icons";
+import {TaskTypes} from "@/models/enums";
 import {useState} from "react";
 
 
@@ -100,9 +109,12 @@ export default function CreateActionDialog({onClose, addAction}) {
                         <TextInput onChange={handleTaskInput}
                                    id="title" defaultValue={task.title}
                                    placeholder="Title for your roadmap"/>
-                        <TextInput onChange={handleTaskInput}
-                                   id="type" defaultValue={task.type}
-                                   placeholder="Description for your roadmap"/>
+                        <SelectInput onChange={handleTaskInput}
+                                     id="type" defaultValue={task.type}>
+                            {TaskTypes.map(type => <>
+                                <option key={TaskTypes.indexOf(type)} value={type}>{type}</option>
+                            </>)}
+                        </SelectInput>
                         <TextInput onChange={handleTaskInput}
                                    id="link" defaultValue={task.link} label="Page Link"
                                    placeholder="Description for your roadmap"/>

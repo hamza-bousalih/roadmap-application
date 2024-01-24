@@ -26,6 +26,7 @@
     --purple-bg-opacity: hsla(272, 72%, 47%, 30%);
     --green-bg-opacity: hsla(129, 72%, 47%, 27%);
     --red-bg-opacity: hsla(0, 80%, 58%, 27%);
+    --yellow-bg-opacity: hsl(47deg 100% 50% / 15%);
 
     --green-border: hsl(126, 90%, 59%);
     --red-border: hsl(0, 80%, 58%);

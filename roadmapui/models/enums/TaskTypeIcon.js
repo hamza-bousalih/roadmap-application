@@ -7,7 +7,7 @@
     TvIcon
 } from "@/components/utils/icons";
 
-const TaskType = {
+const TaskTypeIcon = {
     Watch: () => <TvIcon/>,
     Read: () => <BookIcon/>,
     Write: () => <PencilSquareIcon/>,
@@ -16,4 +16,22 @@ const TaskType = {
     Qcm: () => <CheckSquareIcon/>,
 }
 
-export default TaskType
+export const TaskType = {
+    Watch: "Watch",
+    Read: "Read",
+    Write: "Write",
+    Code: "Code",
+    Listen: "Listen",
+    Qcm: "Qcm",
+}
+
+export const TaskTypes = [
+    TaskType.Watch,
+    TaskType.Read,
+    TaskType.Write,
+    TaskType.Code,
+    TaskType.Listen,
+    TaskType.Qcm,
+]
+
+export default TaskTypeIcon

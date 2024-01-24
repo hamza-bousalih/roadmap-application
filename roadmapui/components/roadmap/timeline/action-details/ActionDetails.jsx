@@ -1,12 +1,13 @@
 "use client"
 
 import "./action-details.css"
-import {Modal} from "@mui/material";
-import {useEffect, useState} from "react";
+import TaskTypeIcon from "@/models/enums/TaskTypeIcon";
 import Service from "@/services";
-import TaskType from "@/models/enums/TaskType";
+import {Modal} from "@mui/material";
+import {useEffect , useState} from "react";
 
-export default function ActionDetails({actionId, open, handleClose}) {
+
+export default function ActionDetails({actionId , open , handleClose , _action}) {
     const [action, setAction] = useState({});
     const [loading, setLoading] = useState(true);
 
@@ -22,8 +23,13 @@ export default function ActionDetails({actionId, open, handleClose}) {
             }
         };
 
-        fetchData().catch(err => console.log(err));
-    }, [actionId]);
+        if (actionId !== undefined) {
+            fetchData().catch(err => console.log(err));
+        } else if (_action !== undefined) {
+            setAction(_action)
+            setLoading(false)
+        }
+    } , [actionId , _action]);
 
     return (<>
         <Modal
@@ -39,16 +45,17 @@ export default function ActionDetails({actionId, open, handleClose}) {
                         <h2 className="action__title">{action?.title}</h2>
                         <p className="action__description">{action?.description}</p>
                         <div className="tasks">
-                            {action?.tasks?.map(task =>
-                                <a className="task" target="_blank" href={task?.link} key={task?.id}>
-                                    <div className="task__icon">{TaskType[task?.type]()}</div>
+                            {action?.tasks?.map(task => <>
+                                <a
+                                    className="task" target="_blank" href={task?.link}
+                                    key={task?.id? task.id: action.tasks.indexOf(task)}>
+                                    <div className="task__icon">{TaskTypeIcon[task?.type]()}</div>
                                     <div className="separator"><span></span><span></span></div>
                                     <div className="task__title">{task?.title}</div>
                                 </a>
-                            )}
+                            </>)}
                         </div>
-                    </>
-                }
+                    </>}
             </div>
         </Modal>
     </>)

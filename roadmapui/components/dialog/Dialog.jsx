@@ -1,5 +1,6 @@
 import "./dialog.css"
-import React, {Fragment, Children} from "react";
+import React , {Fragment} from "react";
+
 
 export const DialogBody = ({children, type = "form"}) => {
     return <div className="body">
@@ -30,6 +31,19 @@ export const TextInput = ({id, onChange, defaultValue, placeholder, name = id, l
                    placeholder={placeholder}
                 // maxLength={maxLength} minLength={minLength} required={required}
             />
+        </div>
+    </>
+}
+
+export const SelectInput = ({id , onChange , defaultValue , children , name = id , label = id}) => {
+    return <>
+        <div className="input-group">
+            <label htmlFor={id}>{label}</label>
+            <select className="input" id={id}
+                    onChange={onChange} name={name}
+                    value={defaultValue}>
+                {children}
+            </select>
         </div>
     </>
 }

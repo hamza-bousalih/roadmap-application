@@ -27,6 +27,7 @@ export default function RoadmapAction({data, option}) {
                 <ActionDetails
                     handleClose={() => setShowTasks(false)}
                     actionId={data.id}
+                    _action={data}
                     open={showTasks}
 
                 />}
