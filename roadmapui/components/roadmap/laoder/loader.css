@@ -1,3 +1,14 @@
+
+.loader-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-overlay);
+    z-index: 9999;
+}
+
 .lds-grid {
     display: inline-block;
     position: absolute;
