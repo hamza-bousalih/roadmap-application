@@ -1,0 +1,14 @@
+button {
+    background: var(--purpal);
+    padding: 10px 20px;
+    border-radius: 7px;
+    color: var(--form-field-bg);
+    font-weight: 600;
+    font-size: 16px;
+
+    &.fixed-right-button {
+        position: fixed;
+        right: 15px;
+        bottom: 15px;
+    }
+}

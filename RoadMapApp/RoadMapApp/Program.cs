@@ -14,9 +14,17 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
 );
 
-// Add the dataContext
+// UseSqlServer
+// builder.Services.AddDbContext<DataContext>(
+//         options=>options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// UseMySql
+const string connectionString = "server=localhost;user=root;password=;database=roamdapdb";
 builder.Services.AddDbContext<DataContext>(
-        options=>options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options => options.UseMySql(
+        connectionString,
+        new MySqlServerVersion(new Version(8, 0, 29)))
+);
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
