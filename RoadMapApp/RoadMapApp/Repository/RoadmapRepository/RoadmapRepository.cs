@@ -65,4 +65,8 @@ public class RoadmapRepository : ModuleRepository<Roadmap>, IRoadmapRepository
         await IncludedTable.FirstOrDefaultAsync(r =>
             r.RoadmapStudents.Any(rs => rs.RoadmapId == id && rs.StudentId == studentId)
         );
+    public async Task<List<Roadmap>> Search(string query)=>
+   
+        await Filter(r => r.Title == query);
+
 }

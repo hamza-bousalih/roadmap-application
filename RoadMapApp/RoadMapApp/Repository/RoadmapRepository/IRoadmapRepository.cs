@@ -11,4 +11,6 @@ public interface IRoadmapRepository : IModuleRepository<Roadmap>
     public Task<Roadmap> FindByAdmin(int id);
     public Task<Roadmap> FindByStudent(int id);
     public Task<Roadmap> FindByIdAndStudentId(int id, int studentId);
+    public Task<List<Roadmap>> Search(string query);
+
 }

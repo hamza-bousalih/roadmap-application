@@ -82,4 +82,10 @@ public class RoadmapApi : ModuleController<Roadmap, RoadmapDto, IRoadmapService>
     [HttpGet("{id:int}/student/{studentId:int}")]
     public async Task<ActionResult<RoadmapDto>> FindByIdAndStudentId(int id, int studentId) => 
         await FetchAsync(id, studentId, Service.FindByIdAndStudentId);
+    [HttpGet("search/{query}")]
+    public async Task<ActionResult<List<RoadmapDto>>> Search(string query)
+    {
+        var results =ToDto(await Service.Search(query));
+        return Ok(results);
+    }
 }
