@@ -64,39 +64,34 @@ export default function MySlider() {
     ],
   };
 
-  const comments = roadmaps.map((comm) => (
+  return (
     <div className='slid'>
-    <div className="" key={comm.id} >
-      <div className='card'>
-      <div className="icon"  >
-    <Image
-       src={down}
-       alt=""
-       
-    />
-  </div>
-      <LookIcon  className="icon"/>
-        <Link href="/roadmaps/[id]" as={`/roadmaps/${comm.id}`} key={comm.id}>
-          <h5 className="card-top">{comm.title}</h5>
-        </Link>
-        <p className="card-bottom" >
-          {comm.description}
-        </p>
-        <div className='tags' >
-              <button className='tag'>tag 1</button>
-              <button className='tag'>tag 2</button>
-              <button className='tag'>tag 2  tage 1</button>  
+      <div className="MySlider">
+        <Slider {...settings}>
+          {roadmaps.map((comm) => (
+            <div className="card" key={comm.id}>
+                    <div className="icon"  >
+                      <Image
+                        src={down}
+                        alt=""
+                        
+                      />
+                    </div>
+
+              <LookIcon className="icon" />
+              <Link href="/roadmaps/[id]" as={`/roadmaps/${comm.id}`} key={comm.id}>
+                <h5 className="card-top">{comm.title}</h5>
+              </Link>
+              <p className="card-bottom">{comm.description}</p>
+              <div className='tags'>
+                <button className='tag'>tag 1</button>
+                <button className='tag'>tag 2</button>
+                <button className='tag'>tag 2 tage 1</button>
+              </div>
             </div>
+          ))}
+        </Slider>
       </div>
     </div>
-    </div>
-  ));
-
-  return (
-          <div>
-            <Slider {...settings}>
-              {comments}
-            </Slider>
-          </div>
   );
 }
