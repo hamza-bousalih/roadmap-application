@@ -9,6 +9,8 @@ namespace RoadMapApp.Services.RoadmapService
 {
     public class RoadmapService : ModuleService<Roadmap, IRoadmapRepository>, IRoadmapService
     {
+        private IRoadmapService _roadmapServiceImplementation;
+
         public RoadmapService(IContainer container): base(container)
         {
         }
@@ -36,6 +38,11 @@ namespace RoadMapApp.Services.RoadmapService
         public async Task<Roadmap> FindByIdAndStudentId(int id, int studentId)
         {
             return await Repository.FindByIdAndStudentId(id, studentId);
+        }
+
+        public Task<List<Roadmap>> Search(string query)
+        {
+            return Repository.Search(query);
         }
     }
 }
