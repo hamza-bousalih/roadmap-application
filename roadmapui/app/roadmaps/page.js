@@ -27,41 +27,41 @@ export default  function roadmap() {
 
  const comments = roadmaps.map((comm)  => (
       
-      
-      <div className="card ok" style={{  backgroundColor:'#262E55', color:'white' , marginBottom:'20px'}}>
-        <div className='card-body'>
-        <LookIcon  className="ico"/>
-        <Link href="/roadmaps/[id]" as={`/roadmaps/${comm.id}`} key={comm.id}>
-          <h5 className='card-title text-white ' style={{textDecoration:'none',fontSize:'30px',fontWeight:'bold'}}>{comm.title}</h5>
-          </Link>
         
-          <p className='card-text' style={{color:'gray'}}>
-            {comm.description}
-          </p>
-          <div style={{marginTop:'20px'}}>
-         
-            <span  className='tags'>Card link</span>
-            <span  className='tags'>Card link</span> 
-            
-          </div>
-         
-        </div>
-      </div>
-    
+  <div className="box" >
+  <div className='card-body'>
+  <LookIcon className="ico" />
+  <Link href="/roadmaps/[id]" as={`/roadmaps/${comm.id}`} key={comm.id}>
+    <h5 className='card-title text-white ' style={{textDecoration:'none',fontSize:'30px',fontWeight:'bold'}}>{comm.title}</h5>
+    </Link>
+  
+    <p className='card-text' style={{color:'gray'}}>
+      {comm.description}
+    </p>
+    <div style={{marginTop:'20px'}}>
    
-       )
-      )
-  return <main>
-    <Navbar />
-<div className= {` container mx-auto mt-4`} >
+      <span  className='tag'>Card link</span>
+      <span  className='tag'>Card link</span> 
+      
+    </div>
+   
+  </div>
+</div>
 
-  <div>
+
+ )
+)
+return <main>
+<Navbar />
+<div className= {`mt-4`}>
+
+<div>
 <Form/>
 
-{loading && <Loader/>}
+
 <div >
-  <div className='flex justify-center items-center'>
-    <div className='grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-4 m-6'>
-    {comments}
-  </div></div>
+<div className='container'>
+
+{comments}
+</div>
 </div></div></div></main>}
