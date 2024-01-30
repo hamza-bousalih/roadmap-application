@@ -9,22 +9,7 @@ import Connexion from "@/components/Connexion";
 import "../styles/styleHome.css";
 import UserService from "@/services/UserService";
 import Service from "@/services";
-
-/* export default function Home() {
-    const router = useRouter()
-
-    return <main>
-        Home Page
-        <ul>
-            <li>
-                <button onClick={() => router.push("/roadmaps/4")}>Roadmap</button>
-            </li>
-            <li>
-                <button onClick={() => router.push("/roadmaps/create")}>create</button>
-            </li>
-        </ul>
-    </main>
-} */
+import MYFooter from "@/components/MYFooter";
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -89,8 +74,14 @@ export default function Home() {
     <div className="flex flex-col md:flex-row items-center justify-center px-10 mx-auto max-w-7xl">
   <div className="md:mr-4 md:w-1/2">
     <h1 className="text-4xl md:text-6xl font-bold text-purple-600 mb-4">Roadmap Website</h1>
-    <p className="text-white">
-      Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.
+    <p className="text-white paragraphe">
+     
+        Le site "Roadmap Website" offre une sélection diversifiée de roadmaps parmi lesquels vous pouvez 
+        choisir en fonction de vos besoins spécifiques. Chaque roadmap propose une série d'actions à entreprendre.
+        À l'intérieur de chaque action, vous découvrirez une liste de tâches spécifiques à accomplir. Le processus
+        global vise à vous guider de manière structurée et progressive dans l'accomplissement de vos objectifs, 
+        en décomposant le parcours en actions claires et mesurables, puis en détaillant ces actions en tâches
+        spécifiques pour une approche plus gérable.
     </p>
   </div>
   <div className="md:w-1/2 road"  >
@@ -163,10 +154,9 @@ export default function Home() {
     
     </Connexion>
     </>
- 
-
-  
+    
     </body>
+     
     </html>
     </Fragment>
   );
