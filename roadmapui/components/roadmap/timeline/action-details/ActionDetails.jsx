@@ -2,10 +2,10 @@
 
 import "./action-details.css"
 import {useRoadmapContext} from "@/app/roadmaps/layout";
+import Dialog from "@/components/dialog/Dialog";
 import EditTaskDialog from "@/components/roadmap/create/EditTaskDialog";
 import TaskTypeIcon from "@/models/enums/TaskTypeIcon";
 import Service from "@/services";
-import {Modal} from "@mui/material";
 import {useEffect , useState} from "react";
 
 
@@ -43,12 +43,7 @@ export default function ActionDetails({actionId , open , handleClose , _action})
     } , [actionId , _action]);
 
     return (<>
-        <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-        >
+        <Dialog onClose={handleClose}>
             <div className="action-details">
                 {loading && <>Loading</>}
                 {!loading &&
@@ -95,7 +90,7 @@ export default function ActionDetails({actionId , open , handleClose , _action})
                         </>}
                     </>}
             </div>
-        </Modal>
+        </Dialog>
 
         {editTask && <EditTaskDialog onClose={() => setEditTask(false)} _task={taskToEdit}/>}
     </>)

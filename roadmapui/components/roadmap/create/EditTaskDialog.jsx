@@ -10,21 +10,24 @@ import {useState} from "react";
 
 export default function EditTaskDialog({onClose , _task}) {
     const {setRoadmap} = useRoadmapContext()
-    const [task , setTask] = useState(_task);
-    console.log(task)
+    const [task , setTask] = useState({..._task});
+
+    const handleInput = (event) => {
+        const {name , value} = event.target
+        setTask((prev) => ({...prev , [name]: value}));
+    }
 
     const onCloseHandler = () => {
         onClose()
     }
 
     const submitHandler = () => {
+        _task.title = task.title;
+        _task.description = task.description;
+        _task.link = task.link;
+        _task.type = task.type;
         setRoadmap(prev => ({...prev}))
         onClose()
-    }
-
-    const handleInput = (event) => {
-        const {name , value} = event.target
-        setTask((prev) => ({...prev , [name]: value}));
     }
 
     return <>
