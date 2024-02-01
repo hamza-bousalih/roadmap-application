@@ -1,7 +1,6 @@
 .action-details {
     background: var(--bg-color-400);
     width: min(700px, 95%);
-    /*height: min(500px, 90%);*/
     height: fit-content;
     position: fixed;
     left: 50%;
@@ -72,5 +71,14 @@
                 cursor: pointer;
             }
         }
+    }
+
+
+    input, textarea {
+        background: transparent;
+        border: none;
+        outline: none;
+        width: 100%;
+        min-height: fit-content;
     }
 }

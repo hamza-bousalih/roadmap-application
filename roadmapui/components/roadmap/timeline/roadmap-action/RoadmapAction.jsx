@@ -1,12 +1,13 @@
 "use client"
 
-import {CheckCircleIcon, FullScreenIcon, PlusIcon} from "@/components/utils/icons";
-import {useState} from "react";
+import {useRoadmapContext} from "@/app/roadmaps/layout";
+import CreateActionDialog from "@/components/roadmap/create/CreateActionDialog";
 import ActionDetails from "@/components/roadmap/timeline/action-details/ActionDetails";
 
 import "./roadmap-action.css"
-import {useRoadmapContext} from "@/app/roadmaps/layout";
-import CreateActionDialog from "@/components/roadmap/create/CreateActionDialog";
+import {FullScreenIcon , PlusIcon} from "@/components/utils/icons";
+import {useState} from "react";
+
 
 export default function RoadmapAction({data, option}) {
     const [showTasks, setShowTasks] = useState(false);

@@ -83,7 +83,7 @@ export default function CreateActionDialog({onClose, addAction}) {
         >
             <DialogBody>
 
-                <DialogSection title="Create New Action">
+                <DialogSection key={1} title="Create New Action">
                     <DialogForm>
                         <TextInput defaultValue={newAction.title} id="title" placeholder="Title for your roadmap"
                                    onChange={handleActionInput}/>
@@ -104,7 +104,7 @@ export default function CreateActionDialog({onClose, addAction}) {
                     </DialogFooter>
                 </DialogSection>
 
-                <DialogSection title="Add a Task">
+                <DialogSection key={2} title="Add a Task">
                     <DialogForm>
                         <TextInput onChange={handleTaskInput}
                                    id="title" defaultValue={task.title}

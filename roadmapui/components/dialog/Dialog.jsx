@@ -2,7 +2,7 @@ import "./dialog.css"
 import React , {Fragment} from "react";
 
 
-export const DialogBody = ({children, type = "form"}) => {
+export const DialogBody = ({children}) => {
     return <div className="body">
         {children}
     </div>
