@@ -59,6 +59,9 @@ const NavBar = ({ setShowModal, setShowModal2 }) => {
                         <Link href="/roadmaps">
                             <li className="ml-10 hover:border-b text-xl text-white">Roadmaps</li>
                         </Link>
+                        <Link href="/roadmaps/create">
+                            <li className="ml-10 hover:border-b text-xl text-white">Create New</li>
+                        </Link>
                     </ul>
                 </div>
 

@@ -46,6 +46,9 @@ const Navbar = () => {
         <Link style={{ margin: "17px" ,textDecoration:"none"}} className="ma" href="/connect">
           Roadmaps
         </Link>
+        <Link style={{ margin: "17px" ,textDecoration:"none"}} className="ma" href="/roadmaps/create">
+          Create New
+        </Link>
       </div>
       <div style={{ flex: "1", textAlign: "right", marginRight: "15px"}}>
       <Link href="/dash" >

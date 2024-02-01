@@ -26,7 +26,6 @@ builder.Services.AddDbContext<DataContext>(
         new MySqlServerVersion(new Version(8, 0, 29)))
 );
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

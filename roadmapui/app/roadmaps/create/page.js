@@ -2,10 +2,12 @@
 
 import {useRoadmapContext} from "@/app/roadmaps/layout";
 import Button from "@/components/button/Button";
+import Navbar from "@/components/navbar/navbar";
 import CreateRoadmapDialog from "@/components/roadmap/create/CreateRoadmapDialog";
 import {LoaderOverlay} from "@/components/roadmap/laoder/Loader";
 import RoadmapDetails from "@/components/roadmap/timeline/roadmap-details/RoadmapDetails";
 import services from "@/services";
+import data from "@/services/data";
 import {useRouter} from 'next/navigation';
 import {useEffect , useState} from "react";
 
@@ -18,6 +20,7 @@ export default function CreateRoadmapPage() {
 
     useEffect(() => {
         modeChanger.create()
+        setRoadmap({})
     }, [createMode]);
 
     const createHandler = () => {
@@ -33,6 +36,7 @@ export default function CreateRoadmapPage() {
 
     return (<>
         {creating? <LoaderOverlay/>: null}
+        <Navbar />
         <RoadmapDetails/>
         {<Button className="fixed-right-button" label="Create Now" onClick={createHandler}></Button>}
         {showCreateRoadmapDialog && <CreateRoadmapDialog onClose={() => setShowCreateRoadmapDialog(false)}/>}

@@ -1,5 +1,6 @@
 "use client"
 
+import Navbar from "@/components/navbar/navbar";
 import Service from "@/services"
 import {useEffect, useState} from "react";
 import Loader from "@/components/roadmap/laoder/Loader";
@@ -30,6 +31,7 @@ export default function RoadmapPage({params: {roadmapId}}) {
 
     return <>
         {loading && <Loader/>}
+        <Navbar />
         {(!loading && roadmap) && <RoadmapDetails roadmap={roadmap}/>}
     </>
 }
