@@ -20,23 +20,23 @@ export default function CreateRoadmapPage() {
 
     useEffect(() => {
         modeChanger.create()
-        setRoadmap({})
+        setRoadmap({title: '', description: ''})
     }, [createMode]);
 
     const createHandler = () => {
-        setCreating(true)
+        // setCreating(true)
         console.log(roadmap)
-        services.RoadmapService.create(roadmap)
-            .then(data => {
-                console.log(data)
-                router.push("/roadmaps")
-            })
-            .finally(() => setCreating(false))
+        // services.RoadmapService.create(roadmap)
+        //     .then(data => {
+        //         console.log(data)
+        //         router.push("/roadmaps")
+        //     })
+        //     .finally(() => setCreating(false))
     }
 
     return (<>
         {creating? <LoaderOverlay/>: null}
-        <Navbar />
+        {/* <Navbar /> */}
         <RoadmapDetails/>
         {<Button className="fixed-right-button" label="Create Now" onClick={createHandler}></Button>}
         {showCreateRoadmapDialog && <CreateRoadmapDialog onClose={() => setShowCreateRoadmapDialog(false)}/>}

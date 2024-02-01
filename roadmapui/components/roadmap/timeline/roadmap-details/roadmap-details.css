@@ -50,6 +50,14 @@
             & .roadmap__desc {
                 width: min(100%, 900px);
             }
+
+            input, textarea {
+                background: transparent;
+                border: none;
+                outline: none;
+                width: 100%;
+                min-height: fit-content;
+            }
         }
     }
 }

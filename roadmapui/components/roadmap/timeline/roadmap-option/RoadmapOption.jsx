@@ -1,31 +1,52 @@
 "use client"
 
+import {useRoadmapContext} from "@/app/roadmaps/layout";
+import CreateOptionDialog from "@/components/roadmap/create/CreateOptionDialog";
 import RoadmapAction from "@/components/roadmap/timeline/roadmap-action/RoadmapAction";
 
 import "./roadmap-option.css"
 import {PlusIcon} from "@/components/utils/icons";
 import {useState} from "react";
-import CreateOptionDialog from "@/components/roadmap/create/CreateOptionDialog";
-import {useRoadmapContext} from "@/app/roadmaps/layout";
+
 
 export default function RoadmapOption({data}) {
-    const {createMode, updateMode} = useRoadmapContext()
+    const {createMode , updateMode , readMode , setRoadmap} = useRoadmapContext()
+
+    const inputHandler = (e) => {
+        const {name , value} = e.target
+        data[name] = value;
+        setRoadmap((prev) => ({...prev}));
+    }
 
     return <>
         <div className="option-card">
-            <h3 className="option-card__title">{data.title}</h3>
-            <p className="option-card__desc">{data.description}</p>
-            {(data?.start || (updateMode || createMode)) &&
-                <div className="actions">
-                    <RoadmapAction data={data.start} option={data}/>
-                </div>
-            }
+            {readMode? <>
+                <h3 className="option-card__title">{data.title}</h3>
+                <p className="option-card__desc">{data.description}</p>
+            </>: <>
+                <h3 className="option-card__title">
+                    <input
+                        name="title" type="text"
+                        onChange={inputHandler}
+                        value={data.title}/>
+                </h3>
+                <p className="option-card__desc">
+                <textarea
+                    name="description"
+                    onChange={inputHandler}
+                    value={data.description}>
+                </textarea>
+                </p>
+            </>}
+            {(data?.start || (updateMode || createMode)) && <div className="actions">
+                <RoadmapAction data={data.start} option={data}/>
+            </div>}
         </div>
     </>
 }
 
 export function AddRoadmapOption({section}) {
-    const [showDialog, setShowDialog] = useState(true);
+    const [showDialog , setShowDialog] = useState(true);
     const {setRoadmap} = useRoadmapContext();
 
     const addOption = (option) => {

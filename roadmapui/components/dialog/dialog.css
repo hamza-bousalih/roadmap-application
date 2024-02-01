@@ -24,6 +24,7 @@
         border-radius: calc(var(--border) * 2);
         box-shadow: var(--form-shdow);
         padding: 10px 20px 20px;
+        margin: 0;
 
         & .header {
             & .title {
