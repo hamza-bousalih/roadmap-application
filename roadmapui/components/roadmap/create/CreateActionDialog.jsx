@@ -117,7 +117,7 @@ export default function CreateActionDialog({onClose, addAction}) {
                         </SelectInput>
                         <TextInput onChange={handleTaskInput}
                                    id="link" defaultValue={task.link} label="Page Link"
-                                   placeholder="Description for your roadmap"/>
+                                   placeholder="Link to the task"/>
                         <LongTextInput onChange={handleTaskInput}
                                        id="description" defaultValue={task.description}
                                        placeholder="Description for your roadmap"/>

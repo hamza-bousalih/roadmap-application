@@ -2,6 +2,7 @@
 
 import "./action-details.css"
 import {useRoadmapContext} from "@/app/roadmaps/layout";
+import EditTaskDialog from "@/components/roadmap/create/EditTaskDialog";
 import TaskTypeIcon from "@/models/enums/TaskTypeIcon";
 import Service from "@/services";
 import {Modal} from "@mui/material";
@@ -9,8 +10,10 @@ import {useEffect , useState} from "react";
 
 
 export default function ActionDetails({actionId , open , handleClose , _action}) {
-    const {roadmap , setRoadmap , readMode} = useRoadmapContext()
+    const {setRoadmap , readMode} = useRoadmapContext()
     const [action, setAction] = useState({});
+    const [taskToEdit , setTaskToEdit] = useState({});
+    const [editTask , setEditTask] = useState(false);
     const [loading, setLoading] = useState(true);
 
     const inputHandler = (e) => {
@@ -78,7 +81,10 @@ export default function ActionDetails({actionId , open , handleClose , _action})
                             </p>
                             <div className="tasks">
                                 {action?.tasks?.map(task => <>
-                                    <a className="task" target="_blank" href={task?.link}
+                                    <a className="task" onClick={() => {
+                                        setTaskToEdit(task);
+                                        setEditTask(true)
+                                    }}
                                        key={task?.id? task.id: action.tasks.indexOf(task)}>
                                         <div className="task__icon">{TaskTypeIcon[task?.type]()}</div>
                                         <div className="separator"><span></span><span></span></div>
@@ -90,5 +96,7 @@ export default function ActionDetails({actionId , open , handleClose , _action})
                     </>}
             </div>
         </Modal>
+
+        {editTask && <EditTaskDialog onClose={() => setEditTask(false)} _task={taskToEdit}/>}
     </>)
 }
