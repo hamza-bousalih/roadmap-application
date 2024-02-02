@@ -12,7 +12,7 @@ import {useEffect , useState} from "react";
 
 export default function RoadmapPage({params: {roadmapId}}) {
     const {roadmap , setRoadmap , modeChanger , updateMode , readMode} = useRoadmapContext();
-    const [loading, setLoading] = useState(true);
+    const [loading , setLoading] = useState(true);
     const router = useRouter()
 
     useEffect(() => {
@@ -22,14 +22,14 @@ export default function RoadmapPage({params: {roadmapId}}) {
                 const data = await Service.RoadmapService.findById(roadmapId);
                 setRoadmap(data);
                 setLoading(false);
-                console.log('Fetched Roadmap:', data);
+                console.log('Fetched Roadmap:' , data);
             } catch (error) {
-                console.error('Error fetching roadmap:', error);
+                console.error('Error fetching roadmap:' , error);
             }
         };
 
         fetchData().catch(err => console.log(err));
-    }, [roadmapId]);
+    } , [roadmapId]);
 
     const editHandler = () => {
         console.log(roadmap)
@@ -44,7 +44,7 @@ export default function RoadmapPage({params: {roadmapId}}) {
 
     return <>
         {loading && <Loader/>}
-        <Navbar />
+        <Navbar/>
         {(!loading && roadmap) && <>
             <RoadmapDetails roadmap={roadmap}/>
             {readMode && <Button className="fixed-right-button opacity-30" label="Edit Now"

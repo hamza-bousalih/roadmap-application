@@ -11,15 +11,15 @@ import {useEffect , useState} from "react";
 
 
 export default function CreateRoadmapPage() {
-    const {roadmap, setRoadmap, modeChanger, createMode} = useRoadmapContext();
-    const [showCreateRoadmapDialog, setShowCreateRoadmapDialog] = useState(true);
+    const {roadmap , setRoadmap , modeChanger , createMode} = useRoadmapContext();
+    const [showCreateRoadmapDialog , setShowCreateRoadmapDialog] = useState(true);
     const [creating , setCreating] = useState(false)
     const router = useRouter()
 
     useEffect(() => {
         modeChanger.create()
-        setRoadmap({title: '', description: ''})
-    }, [createMode]);
+        setRoadmap({title: '' , description: ''})
+    } , [createMode]);
 
     const createHandler = () => {
         setCreating(true)
