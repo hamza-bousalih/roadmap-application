@@ -46,7 +46,8 @@ export default function RoadmapOption({data}) {
 }
 
 export function AddRoadmapOption({section}) {
-    const [showDialog , setShowDialog] = useState(true);
+    const {createMode} = useRoadmapContext()
+    const [showDialog , setShowDialog] = useState(createMode);
     const {setRoadmap} = useRoadmapContext();
 
     const addOption = (option) => {
