@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    color: rgb(var(--foreground-rgb));
+    background-color: #0F172A;
+}
+.MySlider{
+    background-color: #171B34;
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.slid{
+  background-color: #171B34;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.slick-slide > div {
+    margin: 5px 10px;
+  }
+  .slick-list {
+    margin: 0 -10px;
+  }
+
+  .connexion {
+
+  background-size: cover;
+  background-color: rgba(15, 23, 42, 0.9);
+    
+  }
+ 
+  .road{
+    position: relative;
+    top: 15px;
+    left: 57px;
+ 
+  }
+ 
+  
+
+  
+
+
+
+  

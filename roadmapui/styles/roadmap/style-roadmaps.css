@@ -24,7 +24,7 @@
   width: 100%;
 }
 
-.tags{
+.tag{
   background-color: #0C1027;
   margin-right: 10px;
   padding: 7px 17px;
@@ -170,3 +170,46 @@ top: -5px;
 font-size: 10px;
   
 }
+.container{
+  width: 1200px;
+  margin: 0px auto;
+  columns: 3;
+  column-gap:10px ;
+  margin-top: 20px;
+}
+.box{
+  padding: 20px;
+  background-color:#262E55;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  break-inside: avoid;
+
+}
+
+@media (max-width: 768px) {
+  .container {
+    columns: 2;
+  }
+}
+@media (max-width: 640px) {
+  .container {
+    columns: 1;
+   width: 400px;
+  }
+}
+.title{
+  color: aliceblue;
+  font-size: 30px;
+  font-family: lato;
+}
+.desc{
+  color: grey;
+  font-family: lato;
+}
+
+
+
+
+
+
+
